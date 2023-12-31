@@ -1,0 +1,69 @@
+#include <WiFi.h> 	
+#include <string>
+
+
+const char *server = "https://server remoto.com/raccolta_dati.php";
+const int port = 88;
+
+
+void connectToWifi();
+void sendDataToServer(float temperatura, float umidita, float luce);
+
+
+void setup(){
+    Serial.begin(230400);
+    Serial.println("Connessione al Wi-Fi...");
+ }
+
+
+void loop(){
+
+
+    sendDataToServer(temperatura, umidita, luce);
+    
+    void connectTowifi{
+    WiFi.begin(“Nome della Rete”, “Password del Wifi”);
+     
+    while (WiFi.status() != WL_CONNECTED) {
+        delay(1000);
+        Serial.println("Connessione al Wi-Fi in corso...");
+    }
+
+
+    Serial.println("Connesso al Wi-Fi!" + String(ssid));
+    Serial.println("Indirizzo IP: " + WiFi.localIP().toString());
+}
+
+
+void sendDataToServer(float temperatura, float umidita, float luce){
+    Serial.println("invio i dati al server remoto...");
+
+
+    
+WiFiClient client;
+
+if (!client.connect(“Indirizzo del server”, 80)) { 
+    Serial.println("Connessione al server fallita.");
+    return;
+
+
+
+String message = "GET /lettura_dati.php?temp=" + String(temperatura) + "&um=" + String(umidita) + "&luce=" + String(luce);
+
+
+    message += "HTTP/1.1\r\n";
+    message += "Host: " + String(server) + "\r\n";
+    message += "Connection: close\r\n\r\n";
+
+
+    client.print(message); 
+    delay(1000);
+
+
+    
+    Serial.println();
+    Serial.println("Dati inviati con successo al server.");
+
+
+    client.stop();
+}

@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Restaurant Menu</title>
-  <!-- Bootstrap CSS -->
+  
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     body {
@@ -18,14 +18,14 @@
       border-radius: 10px;
     }
 
-    .first-courses { background-color: #FFD700; color: #333; } /* Gold */
-    .second-courses { background-color: #66cdaa; color: #333; } /* Medium Aquamarine */
-    .desserts { background-color: #bc8f8f; color: #333; } /* Rosy Brown */
+    .first-courses { background-color: #FFD700; color: #333; } 
+    .second-courses { background-color: #66cdaa; color: #333; } 
+    .desserts { background-color: #bc8f8f; color: #333; } 
     .first-courses-item { background-color: #fff2cc; color: #333; }
     .second-courses-item { background-color: #d9ead3; color: #333; }
     .desserts-item { background-color: #f4cccc; color: #333; }
-    .appetizers { background-color: #ff6347; color: #333; } /* Tomato */
-    .drinks { background-color: #87ceeb; color: #333; } /* Sky Blue */
+    .appetizers { background-color: #ff6347; color: #333; } 
+    .drinks { background-color: #87ceeb; color: #333; } 
   </style>
 </head>
 
@@ -35,7 +35,7 @@
     <h2>Menu</h2>
 
     <?php
-    // Array of menu items with prices
+    
     $menuItems = array(
       "first_courses" => array(
       array("name" => "Spaghetti alla Carbonara", "description" => "Spaghetti al dente con una cremosa salsa carbonara a base di uova, pancetta croccante e pecorino grattugiato.", "price" => "12.50"),
@@ -55,9 +55,7 @@
       array("name" => "Torta al Cioccolato Fondente con Gelato alla Vaniglia", "description" => "Torta al cioccolato ricca e morbida, accompagnata da una generosa pallina di gelato alla vaniglia e salsa al cioccolato calda.", "price" => "10.50"),
       ),
     );
-
-    // Function to generate menu items
-    function generateMenu($category, $items, $colorClassBackground, $colorClassItem) {
+      function generateMenu($category, $items, $colorClassBackground, $colorClassItem) {
       ?>
       <?php echo "<div class='card mt-4 $colorClassBackground'>"; ?>
         <div class='card-header'>
@@ -89,8 +87,6 @@
       </div>
       <?php
     }
-
-    // Generate menu for each category
   generateMenu("Primi piatti", $menuItems['first_courses'], 'first-courses', 'first-courses-item');
   generateMenu("Secondi piatti", $menuItems['second_courses'], 'second-courses', 'second-courses-item');
   generateMenu("Desserts", $menuItems['desserts'], 'desserts', 'desserts-item');
